@@ -1,0 +1,54 @@
+ @import url(../styles/page_jeux.scss);
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.display_none{
+    display: none;
+}
+
+.display{
+    display: block;
+}
+
+.background_vh{
+    height: 50vh;
+}
+
+.wrapper_accueil{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#ciel {  
+    background-image: url(../assets/background/ciel.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+  }
+.logo_zelda{
+    height: 20vh;
+    margin-bottom: 40px;
+}
+
+.background_grey{
+    text-align: center;
+    background-color: #c5c5c5;
+    height: auto;
+    width: auto;
+}
+
+#feuille {
+    background-image: url(../assets/background/feuille.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    flex-direction: row;
+  }
+
+.zelda_taille{
+    height: 120px
+}

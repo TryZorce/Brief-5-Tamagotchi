@@ -1,0 +1,62 @@
+.wrapper_jeux {
+  justify-content: end;
+  align-items: end;
+  display: flex;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.display_none {
+  display: none;
+}
+
+.display {
+  display: block;
+}
+
+.background_vh {
+  height: 50vh;
+}
+
+.wrapper_accueil {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+#ciel {
+  background-image: url("ciel.0eb3a434.png");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.logo_zelda {
+  height: 20vh;
+  margin-bottom: 40px;
+}
+
+.background_grey {
+  text-align: center;
+  height: auto;
+  width: auto;
+  background-color: #c5c5c5;
+}
+
+#feuille {
+  background-image: url("feuille.62341ca0.jpeg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex-direction: row;
+}
+
+.zelda_taille {
+  height: 120px;
+}
+
+/*# sourceMappingURL=index.1b44cdfa.css.map */
