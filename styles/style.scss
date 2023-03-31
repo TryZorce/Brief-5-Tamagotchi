@@ -18,16 +18,16 @@
 
 .wrapper_accueil{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#ciel {  
+.ciel {  
     background-image: url(../assets/background/ciel.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center bottom;
+    flex-direction: column;
   }
 .logo_zelda{
     height: 20vh;
@@ -41,14 +41,20 @@
     width: auto;
 }
 
-#feuille {
+.feuille {
     background-image: url(../assets/background/feuille.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center bottom;
+  }
+
+  .row {
     flex-direction: row;
   }
 
+  .column {
+    flex-direction: column;
+  }
 .zelda_taille{
     height: 120px
 }

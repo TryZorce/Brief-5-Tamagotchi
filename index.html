@@ -10,8 +10,8 @@
 </head>
 
 <body>
-    <div class="display">
-        <div id="ciel" class="background_vh wrapper_accueil">
+    <div class="display_non">
+        <div class="ciel background_vh wrapper_accueil">
             <img class="logo_zelda" src="./assets/zelda_logo.svg" alt="Logo du jeux The Legend Of Zelda">
             <div class="background_grey">
                 <p> Enter your name :</p>
@@ -21,7 +21,7 @@
                 </form>
             </div>
         </div>
-        <div id="feuille" class="background_vh  wrapper_accueil">
+        <div class="feuille background_vh  wrapper_accueil">
             <a href="">
                 <img src="./assets/link/link.png" alt="Link de The Legend Of Zelda">
             </a>
@@ -31,28 +31,72 @@
         </div>
     </div>
     <div>
-        <div id="ciel" class="background_vh wrapper_jeux">
+        <div class="ciel background_vh wrapper_jeux">
             <img src="./assets/link/link_gauche.png" alt="Link de The Legend Of Zelda">
         </div>
-        <div id="feuille" class="background_vh">
+        <div class="feuille background_vh wrapper_image">
             <div>
                 <a href="">
                     <img src="./assets/bouton/button_coeur.png">
                 </a>
+                <div class="progress_bar">
+                    <div class="progress"></div>
+                </div>
+                <div id="barre_progression_coeur_link"></div>
             </div>
             <div>
                 <a href="">
                     <img src="./assets/bouton/button_pièce.png">
+
                 </a>
+                <div class="progress_bar">
+                    <div class="progress"></div>
+                </div>
+                <div id="barre_progression_pièce_link"></div>
             </div>
             <div>
                 <a href="">
                     <img src="./assets/bouton/button_potion.png">
                 </a>
+                <div class="progress_bar">
+                    <div class="progress"></div>
+                </div>
+                <div id="barre_progression_potion_link"></div>
             </div>
         </div>
-        
+    </div>
+    <div class="ciel background_vh wrapper_jeux">
+        <img src="./assets/zelda/zelda_pas_gauche.png" alt="Zelda de The Legend Of Zelda">
+    </div>
 
+    <div class="feuille background_vh wrapper_image">
+        <div class="image-container">
+            <a href="">
+                <img src="./assets/bouton/button_coeur.png">
+            </a>
+            <div class="progress_bar">
+                <div class="progress"></div>
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="./assets/bouton/button_pièce.png">
+            <div class="progress_bar">
+                <div class="progress"></div>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <img src="./assets/bouton/button_étoile.png">
+            <div class="progress_bar">
+                <div class="progress"></div>
+            </div>
+        </div>
+    </div>
+    <div class="ciel background_vh skull_wrapper">
+        <img class="skull" src="./assets/skull.png">
+    </div>
+    <div class="feuille background_vh">
+    <div class="background_grey">Oh non ! est mort !</div></div>
 </body>
 <script src="typescript/script.ts"></script>
 

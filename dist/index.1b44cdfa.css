@@ -4,6 +4,43 @@
   display: flex;
 }
 
+.wrapper_image {
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+}
+
+.image-container {
+  flex-direction: row;
+  display: flex;
+  position: relative;
+}
+
+.progress_bar {
+  height: 20px;
+  width: 80vw;
+  background-color: #eee;
+  position: relative;
+}
+
+.progress {
+  height: 100%;
+  width: 40%;
+  background-color: #007bff;
+  position: absolute;
+}
+
+.skull_wrapper {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.skull {
+  width: 80%;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -22,17 +59,17 @@
 }
 
 .wrapper_accueil {
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   display: flex;
 }
 
-#ciel {
+.ciel {
   background-image: url("ciel.0eb3a434.png");
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
+  flex-direction: column;
 }
 
 .logo_zelda {
@@ -47,12 +84,19 @@
   background-color: #c5c5c5;
 }
 
-#feuille {
+.feuille {
   background-image: url("feuille.62341ca0.jpeg");
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.row {
   flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
 }
 
 .zelda_taille {
