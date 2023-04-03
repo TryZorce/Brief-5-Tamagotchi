@@ -1,60 +1,96 @@
  @import url(../styles/page_jeux.scss);
-*{
-    margin: 0;
-    padding: 0;
-}
 
-.display_none{
-    display: none;
-}
+ * {
+     margin: 0;
+     padding: 0;
+ }
 
-.display{
-    display: block;
-}
+ .display_none {
+     display: none;
+ }
 
-.background_vh{
-    height: 50vh;
-}
+ .display {
+     display: block;
+ }
 
-.wrapper_accueil{
+ .background_vh {
+     height: 50vh;
+ }
+form {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
+    font-size: 20px;
 }
-
-.ciel {  
-    background-image: url(../assets/background/ciel.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center bottom;
-    flex-direction: column;
-  }
-.logo_zelda{
-    height: 20vh;
-    margin-bottom: 40px;
+.form{
+    font-size: 20px;
 }
+.button{
+    width: 40vh;
+    margin-bottom: 10px;
+    font-size: 20px;
+    
+}
+ .name {
+     width: 900px;
+ }
 
-.background_grey{
+ .wrapper_accueil {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .ciel {
+     background-image: url(../assets/background/ciel.png);
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: center bottom;
+     flex-direction: column;
+ }
+
+ .logo_zelda {
+     height: 20vh;
+     margin-bottom: 40px;
+ }
+
+ .background_grey {
+     text-align: center;
+     background-color: #c5c5c5;
+     height: auto;
+     width: auto;
+ }
+
+ .feuille {
+     background-image: url(../assets/background/feuille.jpeg);
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: center bottom;
+ }
+
+ .row {
+     flex-direction: row;
+ }
+
+ .column {
+     flex-direction: column;
+ }
+ .zelda_taille {
+     height: 120px;
+ }
+
+ #pseudo {
+    width: 60vw;
+    margin-bottom: 20px;
     text-align: center;
-    background-color: #c5c5c5;
-    height: auto;
-    width: auto;
-}
+    font-size: 30px;
+ }
 
-.feuille {
-    background-image: url(../assets/background/feuille.jpeg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center bottom;
-  }
-
-  .row {
-    flex-direction: row;
-  }
-
-  .column {
-    flex-direction: column;
-  }
-.zelda_taille{
-    height: 120px
-}
+ .wrapper_button{
+    margin-top: 60px;
+    text-align: center;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+ }

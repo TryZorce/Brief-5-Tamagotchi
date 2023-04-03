@@ -38,7 +38,23 @@
 }
 .skull {
   width: 80%;
+
+  @media screen and (min-width: 380px) {
+    width: 60%;
+  }
+
+  @media screen and (min-width: 570px) {
+    width: 40%;
+  }
+
+  @media screen and (min-width: 850px) {
+    width: 30%;
+  }
 }
 
-.margin_background{
+.texte {
+  text-align: center;
+  background-color: #c5c5c5;
+  height: 150px;
+  font-size:xx-large;
 }

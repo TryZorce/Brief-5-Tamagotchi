@@ -14,28 +14,35 @@
         <div class="ciel background_vh wrapper_accueil">
             <img class="logo_zelda" src="./assets/zelda_logo.svg" alt="Logo du jeux The Legend Of Zelda">
             <div class="background_grey">
-                <p> Enter your name :</p>
+                <p class="form"> Enter your name :</p>
                 <form>
                     <label for="pseudo"></label>
                     <input type="text" id="pseudo" name="pseudo" required>
+                    <button class="button" id="valider_pseudo">Valider</button>
                 </form>
             </div>
         </div>
-        <div class="feuille background_vh  wrapper_accueil">
-            <a href="">
-                <img src="./assets/link/link.png" alt="Link de The Legend Of Zelda">
-            </a>
-            <a href="">
-                <img class="zelda_taille" src="./assets/zelda/zelda.png" alt="Zelda de The Legend Of Zelda">
-            </a>
+        <div class="feuille background_vh">
+            <div class="wrapper_accueil">
+                <a href="">
+                    <img src="./assets/link/link.png" alt="Link de The Legend Of Zelda">
+                </a>
+                <a href="">
+                    <img class="zelda_taille" src="./assets/zelda/zelda.png" alt="Zelda de The Legend Of Zelda">
+                </a>
+            </div>
+            <div class="wrapper_button">
+                <button class="button">Lancer la partie</button>
+            </div>
         </div>
+
     </div>
     <div>
         <div class="ciel background_vh wrapper_jeux">
             <img src="./assets/link/link_gauche.png" alt="Link de The Legend Of Zelda">
         </div>
         <div class="feuille background_vh wrapper_image">
-            <div>
+            <div class="image-container">
                 <a href="">
                     <img src="./assets/bouton/button_coeur.png">
                 </a>
@@ -44,7 +51,7 @@
                 </div>
                 <div id="barre_progression_coeur_link"></div>
             </div>
-            <div>
+            <div class="image-container">
                 <a href="">
                     <img src="./assets/bouton/button_pièce.png">
 
@@ -54,7 +61,7 @@
                 </div>
                 <div id="barre_progression_pièce_link"></div>
             </div>
-            <div>
+            <div class="image-container">
                 <a href="">
                     <img src="./assets/bouton/button_potion.png">
                 </a>
@@ -66,7 +73,7 @@
         </div>
     </div>
     <div class="ciel background_vh wrapper_jeux">
-        <img src="./assets/zelda/zelda_pas_gauche.png" alt="Zelda de The Legend Of Zelda">
+        <img class="zelda_taille" src="./assets/zelda/zelda_pas_gauche.png" alt="Zelda de The Legend Of Zelda">
     </div>
 
     <div class="feuille background_vh wrapper_image">
@@ -96,7 +103,11 @@
         <img class="skull" src="./assets/skull.png">
     </div>
     <div class="feuille background_vh">
-    <div class="background_grey">Oh non ! est mort !</div></div>
+        <div class="texte">Oh non ! est mort !
+            <button class="button" id="recommencer">Recommencer</button>
+        </div>
+    </div>
+
 </body>
 <script src="typescript/script.ts"></script>
 
