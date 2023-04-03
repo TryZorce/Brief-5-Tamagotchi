@@ -11,7 +11,7 @@
 
 <body>
     <!-- Accueil-->
-    <div class="display">
+    <div id="jeux_start"class="display">
         <div class="ciel background_vh wrapper_accueil">
             <img class="logo_zelda" src="./assets/zelda_logo.svg" alt="Logo du jeux The Legend Of Zelda">
             <div class="background_grey">
@@ -34,8 +34,8 @@
                 </button>
             </div>
             <div class="wrapper_button">
-                <button type="button" id="button" onclick="displaylancer()">Valider</button>
-                <button class="button display_none" id="lancer">Lancer la partie</button>
+                <button id="button">Valider</button>
+                <button class="button display_none" id="lancer">Commencer</button>
             </div>
         </div>
 
@@ -47,28 +47,28 @@
         </div>
         <div class="feuille background_vh wrapper_image">
             <div class="image-container">
-                <a href="">
+                <button>
                     <img src="./assets/bouton/button_coeur.png">
-                </a>
+                </button>
                 <div class="progress_bar">
                     <div class="progress"></div>
                 </div>
                 <div id="barre_progression_coeur_link"></div>
             </div>
             <div class="image-container">
-                <a href="">
+                <button>
                     <img src="./assets/bouton/button_pièce.png">
 
-                </a>
+                </button>
                 <div class="progress_bar">
                     <div class="progress"></div>
                 </div>
                 <div id="barre_progression_pièce_link"></div>
             </div>
             <div class="image-container">
-                <a href="">
+                <button>
                     <img src="./assets/bouton/button_potion.png">
-                </a>
+                </button>
                 <div class="progress_bar">
                     <div class="progress"></div>
                 </div>
@@ -85,11 +85,11 @@
         </div>
         <div class="feuille background_vh wrapper_image">
             <div class="image-container">
-                <a href="">
+                <button>
                     <img src="./assets/bouton/button_coeur.png">
-                </a>
+                </button>
                 <div class="progress_bar">
-                    <div class="progress"></div>
+                    <div id="barre-vie" class="progress"></div>
                 </div>
             </div>
             <div class="image-container">
@@ -120,6 +120,6 @@
     </div>
 
 </body>
-<script src="typescript/script.ts"></script>
+<script type="module" src="typescript/script.ts"></script>
 
 </html>

@@ -20,16 +20,16 @@
 
 .progress_bar {
   position: relative;
-  height: 20px; /* Hauteur de la barre de progression */
-  width: 80vw; /* Largeur de la barre de progression */
-  background-color: #eee; /* Couleur de fond de la barre de progression */
+  height: 20px; 
+  width: 80vw;
+  background-color: #eee;
 }
 
 .progress {
   position: absolute;
   height: 100%;
-  width: 40%; /* Pourcentage de progression */
-  background-color: #007bff; /* Couleur de la progression */
+  width: 60%;
+  background-color: #007bff;
 }
 .skull_wrapper{
   display: flex;

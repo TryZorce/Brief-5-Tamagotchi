@@ -1,3 +1,11 @@
+import { jeux_class } from './jeux_class';
+
+const jeux = new jeux_class();
+
+
+setInterval(() => {
+    jeux.update();
+}, 1000);
 
 /* Detecter selection Link ou Zelda*/
 
@@ -14,13 +22,31 @@ zeldaButton?.addEventListener('click', () => {
     linkButton?.classList.remove('selected');
 });
 
+const buttonStart = document.getElementById("lancer") as HTMLButtonElement;
+const jeuxStart = document.getElementById("jeux_start");
+
+buttonStart.addEventListener("click", () => {
+    if (linkButton?.classList.contains('selected')) {
+        const jeuxLink = document.getElementById("jeux_link");
+        jeuxLink?.classList.add("display");
+    } else if (zeldaButton?.classList.contains('selected')) {
+        const jeuxZelda = document.getElementById("jeux_zelda");
+        jeuxZelda?.classList.add("display");
+    }
+    jeuxStart?.classList.add("display_none");
+    jeuxStart?.classList.remove("display")
+});
+
+
+
 /* Obligation de rentrer pseudo + récup pseudo*/
 
 const form = document.getElementById("recup_pseudo") as HTMLFormElement;
 const inputPseudo = form.elements.namedItem("pseudo") as HTMLInputElement;
-const buttonValider = form.querySelector("button") as HTMLButtonElement;
+const buttonValider = document.getElementById("button") as HTMLButtonElement;
 
-function displaylancer() {
+
+buttonValider.addEventListener("click", (event) => {
     const pseudo = inputPseudo.value;
     const buttonStart = document.getElementById("lancer") as HTMLButtonElement;
     const button = document.getElementById("button") as HTMLButtonElement;
@@ -28,7 +54,11 @@ function displaylancer() {
         buttonStart.classList.add("display");
         button.style.display = "none";
     }
-}
+});
+
+
+
+
 
 /* Reload quand cliquer sur button recommencer */
 

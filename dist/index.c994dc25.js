@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"aSk5W":[function(require,module,exports) {
+})({"aT2g9":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "0907ca6d3464ddca";
+module.bundle.HMR_BUNDLE_ID = "1150cefac994dc25";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, globalThis, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -556,8 +556,113 @@ function hmrAccept(bundle, id) {
     });
 }
 
-},{}],"j4kuM":[function(require,module,exports) {
+},{}],"bmWZz":[function(require,module,exports) {
+var _jeuxClass = require("./jeux_class");
+const jeux = new (0, _jeuxClass.jeux_class)();
+setInterval(()=>{
+    jeux.update();
+}, 1000);
+/* Detecter selection Link ou Zelda*/ const linkButton = document.querySelector(".personnage_selection_link");
+const zeldaButton = document.querySelector(".personnage_selection_zelda");
+linkButton?.addEventListener("click", ()=>{
+    linkButton.classList.add("selected");
+    zeldaButton?.classList.remove("selected");
+});
+zeldaButton?.addEventListener("click", ()=>{
+    zeldaButton.classList.add("selected");
+    linkButton?.classList.remove("selected");
+});
+const buttonStart = document.getElementById("lancer");
+const jeuxStart = document.getElementById("jeux_start");
+buttonStart.addEventListener("click", ()=>{
+    if (linkButton?.classList.contains("selected")) {
+        const jeuxLink = document.getElementById("jeux_link");
+        jeuxLink?.classList.add("display");
+    } else if (zeldaButton?.classList.contains("selected")) {
+        const jeuxZelda = document.getElementById("jeux_zelda");
+        jeuxZelda?.classList.add("display");
+    }
+    jeuxStart?.classList.add("display_none");
+    jeuxStart?.classList.remove("display");
+});
+/* Obligation de rentrer pseudo + récup pseudo*/ const form = document.getElementById("recup_pseudo");
+const inputPseudo = form.elements.namedItem("pseudo");
+const buttonValider = document.getElementById("button");
+buttonValider.addEventListener("click", (event)=>{
+    const pseudo = inputPseudo.value;
+    const buttonStart = document.getElementById("lancer");
+    const button = document.getElementById("button");
+    if (pseudo !== "" && (linkButton?.classList.contains("selected") || zeldaButton?.classList.contains("selected"))) {
+        buttonStart.classList.add("display");
+        button.style.display = "none";
+    }
+});
+/* Reload quand cliquer sur button recommencer */ const retour_accueil = document.getElementById("recommencer");
+retour_accueil?.addEventListener("click", ()=>{
+    location.reload();
+});
 
-},{}]},["aSk5W","j4kuM"], "j4kuM", "parcelRequirebea9")
+},{"./jeux_class":"hadZg"}],"hadZg":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "jeux_class", ()=>jeux_class);
+class jeux_class {
+    barreVie = 100;
+    vie = 100;
+    barreDiminue() {
+        if (this.barreVie > 50) this.vie -= 10;
+        else if (this.barreVie > 15) this.vie -= 6;
+        else this.vie -= 2;
+        // Mettre à jour la propriété "width" de l'élément "barre-vie" en fonction de la vie restante
+        const barreVieEl = document.getElementById("barre-vie");
+        if (barreVieEl) barreVieEl.style.width = `${this.vie}%`;
+    }
+    // Méthode pour alimenter les jauges
+    upvie() {
+        if (this.vie < 100) {
+            this.vie += 10;
+            if (this.vie > 100) this.vie = 100;
+            // Mettre à jour la propriété "width" de l'élément "barre-vie" en fonction de la vie restante
+            const barreVieEl = document.getElementById("barre-vie");
+            if (barreVieEl) barreVieEl.style.width = `${this.vie}%`;
+        }
+    }
+    // Méthode pour mettre à jour les jauges à chaque tour de jeu
+    update() {
+        this.barreDiminue();
+    }
+}
 
-//# sourceMappingURL=Brief_Tamagotchi.3464ddca.js.map
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}]},["aT2g9","bmWZz"], "bmWZz", "parcelRequirebea9")
+
+//# sourceMappingURL=index.c994dc25.js.map
