@@ -10,34 +10,38 @@
 </head>
 
 <body>
-    <div class="display_non">
+    <!-- Accueil-->
+    <div class="display">
         <div class="ciel background_vh wrapper_accueil">
             <img class="logo_zelda" src="/zelda_logo.9c8dfcb7.svg" alt="Logo du jeux The Legend Of Zelda">
             <div class="background_grey">
                 <p class="form"> Enter your name :</p>
-                <form>
-                    <label for="pseudo"></label>
+
+                <form id="recup_pseudo">
+                    <label id="username"></label>
                     <input type="text" id="pseudo" name="pseudo" required="">
-                    <button class="button" id="valider_pseudo">Valider</button>
                 </form>
             </div>
+
         </div>
         <div class="feuille background_vh">
             <div class="wrapper_accueil">
-                <a href="">
+                <button class="personnage_selection_link">
                     <img src="/link.ab225804.png" alt="Link de The Legend Of Zelda">
-                </a>
-                <a href="">
+                </button>
+                <button class="personnage_selection_zelda">
                     <img class="zelda_taille" src="/zelda.fec240d1.png" alt="Zelda de The Legend Of Zelda">
-                </a>
+                </button>
             </div>
             <div class="wrapper_button">
-                <button class="button">Lancer la partie</button>
+                <button type="button" id="button" onclick="displaylancer()">Valider</button>
+                <button class="button display_none" id="lancer">Lancer la partie</button>
             </div>
         </div>
 
+        <!-- Page Jeux Link-->
     </div>
-    <div>
+    <div id="jeux_link" class="display_none">
         <div class="ciel background_vh wrapper_jeux">
             <img src="/link_gauche.60856e69.png" alt="Link de The Legend Of Zelda">
         </div>
@@ -72,39 +76,46 @@
             </div>
         </div>
     </div>
-    <div class="ciel background_vh wrapper_jeux">
-        <img class="zelda_taille" src="/zelda_pas_gauche.5eef7ee8.png" alt="Zelda de The Legend Of Zelda">
+
+    <!-- Page Jeux Zelda-->
+
+    <div id="jeux_zelda" class="display_none">
+        <div class="ciel background_vh wrapper_jeux">
+            <img class="zelda_taille" src="/zelda_pas_gauche.5eef7ee8.png" alt="Zelda de The Legend Of Zelda">
+        </div>
+        <div class="feuille background_vh wrapper_image">
+            <div class="image-container">
+                <a href="">
+                    <img src="/button_coeur.b6c9e4fd.png">
+                </a>
+                <div class="progress_bar">
+                    <div class="progress"></div>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="/button_pièce.3b741bb3.png">
+                <div class="progress_bar">
+                    <div class="progress"></div>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="/button_étoile.86c8f2de.png">
+                <div class="progress_bar">
+                    <div class="progress"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="feuille background_vh wrapper_image">
-        <div class="image-container">
-            <a href="">
-                <img src="/button_coeur.b6c9e4fd.png">
-            </a>
-            <div class="progress_bar">
-                <div class="progress"></div>
-            </div>
+    <!-- Page Fin-->
+    <div id="jeux_fin" class="display_none">
+        <div class="ciel background_vh skull_wrapper">
+            <img class="skull" src="/skull.e2f18f9a.png">
         </div>
-        <div class="image-container">
-            <img src="/button_pièce.3b741bb3.png">
-            <div class="progress_bar">
-                <div class="progress"></div>
+        <div class="feuille background_vh">
+            <div class="texte">Oh non ! est mort !
+                <button class="button" id="recommencer">Recommencer</button>
             </div>
-        </div>
-
-        <div class="image-container">
-            <img src="/button_étoile.86c8f2de.png">
-            <div class="progress_bar">
-                <div class="progress"></div>
-            </div>
-        </div>
-    </div>
-    <div class="ciel background_vh skull_wrapper">
-        <img class="skull" src="/skull.e2f18f9a.png">
-    </div>
-    <div class="feuille background_vh">
-        <div class="texte">Oh non ! est mort !
-            <button class="button" id="recommencer">Recommencer</button>
         </div>
     </div>
 

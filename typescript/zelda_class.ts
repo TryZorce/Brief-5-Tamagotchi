@@ -1,0 +1,3 @@
+class zelda_class {
+
+}

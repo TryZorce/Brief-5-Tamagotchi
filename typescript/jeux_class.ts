@@ -1,0 +1,3 @@
+class jeux_class{
+    
+}

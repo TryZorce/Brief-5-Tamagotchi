@@ -165,4 +165,17 @@ form {
   display: flex;
 }
 
+.personnage_selection {
+  font-size: inherit;
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+}
+
+.selected {
+  background-color: #9d9da0;
+}
+
 /*# sourceMappingURL=index.1b44cdfa.css.map */
