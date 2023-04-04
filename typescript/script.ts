@@ -1,10 +1,12 @@
 import { jeux_class } from './jeux_class';
+import { link_class } from './link_class';
+import {zelda_class} from './zelda_class'
 
-const jeux = new jeux_class();
-
+const jeux_link = new link_class()
+const jeuxclass = new jeux_class();
 
 setInterval(() => {
-    jeux.update();
+    jeuxclass.update();
 }, 1000);
 
 /* Detecter selection Link ou Zelda*/
@@ -66,3 +68,7 @@ const retour_accueil: HTMLElement | null = document.getElementById("recommencer"
 retour_accueil?.addEventListener("click", () => {
     location.reload();
 })
+
+
+jeuxclass.addUpvieButtonListener();
+
