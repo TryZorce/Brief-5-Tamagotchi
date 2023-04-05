@@ -557,11 +557,18 @@ function hmrAccept(bundle, id) {
 }
 
 },{}],"bmWZz":[function(require,module,exports) {
-var _jeuxClass = require("./jeux_class");
-const vieJoueur1 = new (0, _jeuxClass.jeux_class)(100, "barre_vie_link", "upvie_link");
-const vieJoueur2 = new (0, _jeuxClass.jeux_class)(100, "barre_vie_zelda", "upvie_zelda");
-vieJoueur1.addUpvieButtonListener();
-vieJoueur2.addUpvieButtonListener();
+var _linkClass = require("./link_class");
+var _zeldaClass = require("./zelda_class");
+const zelda = new (0, _zeldaClass.zelda_class)();
+const link = new (0, _linkClass.link_class)();
+setInterval(()=>{
+    zelda.update();
+    link.update();
+}, 1000);
+zelda.addUpvieButtonListener();
+zelda.addUppieceButtonListener();
+link.addUppieceButtonListener();
+link.addUpvieButtonListener();
 /* Detecter selection Link ou Zelda*/ const linkButton = document.querySelector(".personnage_selection_link");
 const zeldaButton = document.querySelector(".personnage_selection_zelda");
 linkButton?.addEventListener("click", ()=>{
@@ -602,45 +609,78 @@ retour_accueil?.addEventListener("click", ()=>{
     location.reload();
 });
 
-},{"./jeux_class":"hadZg"}],"hadZg":[function(require,module,exports) {
+},{"./zelda_class":"jaT0k","./link_class":"2zhJb"}],"jaT0k":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "zelda_class", ()=>zelda_class);
+var _jeuxClass = require("./jeux_class");
+class zelda_class extends (0, _jeuxClass.jeux_class) {
+    barre_vie = "barre_vie_zelda";
+    vie = 100;
+    piece = 100;
+    up_vie = "upvie_zelda";
+    up_piece = "uppiece_zelda";
+    barre_piece = "barre_piece_zelda";
+}
+
+},{"./jeux_class":"hadZg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hadZg":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "jeux_class", ()=>jeux_class);
 class jeux_class {
-    constructor(vie, barreId, upvieBtnId){
-        this.vie = vie;
-        this.barreId = barreId;
-        this.upvieBtnId = upvieBtnId;
-    }
-    // Méthode pour diminuer la jauge de vie
-    barreDiminue() {
+    barre_diminue_vie() {
         if (this.vie > 50) this.vie -= 10;
         else if (this.vie > 15) this.vie -= 6;
         else this.vie -= 2;
-        // Mettre à jour la propriété "width" de l'élément de barre en fonction de la vie restante
-        const barreEl = document.getElementById(this.barreId);
-        if (barreEl) barreEl.style.width = `${this.vie}%`;
+        const vieBarre = document.getElementById(this.barre_vie);
+        if (vieBarre) vieBarre.style.width = `${this.vie}%`;
     }
-    // Méthode pour augmenter la jauge de vie
+    // Méthode pour alimenter les jauges
     upvie() {
+        console.log(this.vie);
         if (this.vie < 100) {
             this.vie += 10;
             if (this.vie > 100) this.vie = 100;
-            // Mettre à jour la propriété "width" de l'élément de barre en fonction de la vie restante
-            const barreEl = document.getElementById(this.barreId);
-            if (barreEl) barreEl.style.width = `${this.vie}%`;
+            // Mettre à jour la propriété "width" de l'élément "barre_vie_zelda" en fonction de la vie restante
+            const barreVie = document.getElementById(this.barre_vie);
+            if (barreVie) barreVie.style.width = `${this.vie}%`;
         }
     }
-    // Ajouter un écouteur d'événements pour le bouton d'augmentation de vie
     addUpvieButtonListener() {
-        const upvieBtn = document.getElementById(this.upvieBtnId);
+        const upvieBtn = document.getElementById(this.up_vie);
         if (upvieBtn) upvieBtn.addEventListener("click", ()=>{
             this.upvie();
         });
     }
+    // Même code pour pièce
+    barre_diminue_piece() {
+        if (this.piece > 50) this.piece -= 10;
+        else if (this.piece > 15) this.piece -= 6;
+        else this.piece -= 2;
+        const pieceBarre = document.getElementById(this.barre_piece);
+        if (pieceBarre) pieceBarre.style.width = `${this.piece}%`;
+    }
+    // Méthode pour alimenter les jauges
+    uppiece() {
+        console.log(this.piece);
+        if (this.piece < 100) {
+            this.piece += 10;
+            if (this.piece > 100) this.piece = 100;
+            // Mettre à jour la propriété "width" de l'élément "barre_vie_zelda" en fonction de la vie restante
+            const barrepiece = document.getElementById(this.barre_piece);
+            if (barrepiece) barrepiece.style.width = `${this.piece}%`;
+        }
+    }
+    addUppieceButtonListener() {
+        const uppieceBtn = document.getElementById(this.up_piece);
+        if (uppieceBtn) uppieceBtn.addEventListener("click", ()=>{
+            this.uppiece();
+        });
+    }
     // Méthode pour mettre à jour les jauges à chaque tour de jeu
     update() {
-        this.barreDiminue();
+        this.barre_diminue_vie();
+        this.barre_diminue_piece();
     }
 }
 
@@ -674,6 +714,20 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["aT2g9","bmWZz"], "bmWZz", "parcelRequirebea9")
+},{}],"2zhJb":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "link_class", ()=>link_class);
+var _jeuxClass = require("./jeux_class");
+class link_class extends (0, _jeuxClass.jeux_class) {
+    barre_vie = "barre_vie_link";
+    vie = 100;
+    piece = 100;
+    up_vie = "upvie_link";
+    up_piece = "uppiece_link";
+    barre_piece = "barre_piece_link";
+}
+
+},{"./jeux_class":"hadZg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["aT2g9","bmWZz"], "bmWZz", "parcelRequirebea9")
 
 //# sourceMappingURL=index.c994dc25.js.map

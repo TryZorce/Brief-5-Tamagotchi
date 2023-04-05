@@ -1,13 +1,15 @@
-import {jeux_class} from './jeux_class';
 import {link_class} from './link_class';
 import {zelda_class} from './zelda_class'
 
-const vieJoueur1 = new jeux_class(100, "barre_vie_link", "upvie_link");
-const vieJoueur2 = new jeux_class(100, "barre_vie_zelda", "upvie_zelda");
+const zelda = new zelda_class();
+const link = new link_class();
 
-vieJoueur1.addUpvieButtonListener();
-vieJoueur2.addUpvieButtonListener();
+setInterval(() => {zelda.update(); link.update()}, 1000 );
 
+zelda.addUpvieButtonListener();
+zelda.addUppieceButtonListener();
+link.addUppieceButtonListener();
+link.addUpvieButtonListener();
 /* Detecter selection Link ou Zelda*/
 
 const linkButton = document.querySelector('.personnage_selection_link');
@@ -67,6 +69,4 @@ const retour_accueil: HTMLElement | null = document.getElementById("recommencer"
 retour_accueil?.addEventListener("click", () => {
     location.reload();
 })
-
-
 
