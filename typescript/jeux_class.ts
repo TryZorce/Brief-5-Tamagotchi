@@ -1,6 +1,15 @@
 export class jeux_class {
-  public vie: number = 100;
+  public vie: number;
+  private barreId: string;
+  private upvieBtnId: string;
 
+  constructor(vie: number, barreId: string, upvieBtnId: string) {
+    this.vie = vie;
+    this.barreId = barreId;
+    this.upvieBtnId = upvieBtnId;
+  }
+
+  // Méthode pour diminuer la jauge de vie
   public barreDiminue() {
     if (this.vie > 50) {
       this.vie -= 10;
@@ -10,46 +19,35 @@ export class jeux_class {
       this.vie -= 2;
     }
 
-    
-    const VieEl = document.getElementById('barre-vie');
-    if (VieEl) {
-      VieEl.style.width = `${this.vie}%`;
+    // Mettre à jour la propriété "width" de l'élément de barre en fonction de la vie restante
+    const barreEl = document.getElementById(this.barreId);
+    if (barreEl) {
+      barreEl.style.width = `${this.vie}%`;
     }
   }
 
-  
-
-  // Méthode pour alimenter les jauges
+  // Méthode pour augmenter la jauge de vie
   public upvie() {
-    console.log("aaaaaaaaaaaaaaaaaaaa");
-    console.log(this.vie);
-    
     if (this.vie < 100) {
       this.vie += 10;
       if (this.vie > 100) {
         this.vie = 100;
       }
 
-
-      
-
-      // Mettre à jour la propriété "width" de l'élément "barre-vie" en fonction de la vie restante
-      const barreVie = document.getElementById('barre-vie');
-      if (barreVie) {
-        barreVie.style.width = `${this.vie}%`;
+      // Mettre à jour la propriété "width" de l'élément de barre en fonction de la vie restante
+      const barreEl = document.getElementById(this.barreId);
+      if (barreEl) {
+        barreEl.style.width = `${this.vie}%`;
       }
     }
   }
-  
+
+  // Ajouter un écouteur d'événements pour le bouton d'augmentation de vie
   public addUpvieButtonListener() {
-    console.log("bbbbbbbbbbbb");
-    
-    const upvieBtn = document.getElementById("upvie_zelda");
+    const upvieBtn = document.getElementById(this.upvieBtnId);
     if (upvieBtn) {
       upvieBtn.addEventListener("click", () => {
         this.upvie();
-        console.log();
-        
       });
     }
   }
@@ -57,11 +55,5 @@ export class jeux_class {
   // Méthode pour mettre à jour les jauges à chaque tour de jeu
   public update() {
     this.barreDiminue();
-    
   }
-
-  
 }
-
-
-

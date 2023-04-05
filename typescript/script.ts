@@ -1,13 +1,12 @@
-import { jeux_class } from './jeux_class';
-import { link_class } from './link_class';
+import {jeux_class} from './jeux_class';
+import {link_class} from './link_class';
 import {zelda_class} from './zelda_class'
 
-const jeux_link = new link_class()
-const jeuxclass = new jeux_class();
+const vieJoueur1 = new jeux_class(100, "barre_vie_link", "upvie_link");
+const vieJoueur2 = new jeux_class(100, "barre_vie_zelda", "upvie_zelda");
 
-setInterval(() => {
-    jeuxclass.update();
-}, 1000);
+vieJoueur1.addUpvieButtonListener();
+vieJoueur2.addUpvieButtonListener();
 
 /* Detecter selection Link ou Zelda*/
 
@@ -70,5 +69,4 @@ retour_accueil?.addEventListener("click", () => {
 })
 
 
-jeuxclass.addUpvieButtonListener();
 
