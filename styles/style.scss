@@ -70,10 +70,12 @@ form {
  }
 
  .row {
+    display: flex;
      flex-direction: row;
  }
 
  .column {
+    display: flex;
      flex-direction: column;
  }
  .zelda_taille {
@@ -104,6 +106,27 @@ form {
   font-family: inherit;
  }
 
+
+
+button:hover{
+    cursor:pointer;
+}
+
+.personnage_selection_link{
+    border : 1px solid black;
+    background: rgb(197, 197, 197);
+    margin-right: 20px;
+}
+
+.personnage_selection_zelda{
+    border : 1px solid black;
+    background: rgb(197, 197, 197);
+}
 .selected{
     background-color: rgb(157, 157, 160);
 }
+
+.fond_button_none{
+    border: none;
+    background: transparent;
+  }

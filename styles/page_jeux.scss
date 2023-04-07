@@ -28,7 +28,7 @@
 .progress {
   position: absolute;
   height: 100%;
-  width: 60%;
+  width: 100%;
   background-color: #007bff;
 }
 .skull_wrapper{
@@ -37,18 +37,18 @@
   align-items: center;
 }
 .skull {
-  width: 80%;
+  width: 60%;
 
   @media screen and (min-width: 380px) {
-    width: 60%;
+    width: 50%;
   }
 
   @media screen and (min-width: 570px) {
-    width: 40%;
+    width: 30%;
   }
 
   @media screen and (min-width: 850px) {
-    width: 30%;
+    width: 20%;
   }
 }
 
