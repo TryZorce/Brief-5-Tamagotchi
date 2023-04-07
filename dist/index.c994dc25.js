@@ -561,14 +561,12 @@ var _linkClass = require("./link_class");
 var _zeldaClass = require("./zelda_class");
 const zelda = new (0, _zeldaClass.zelda_class)();
 const link = new (0, _linkClass.link_class)();
-setInterval(()=>{
-    zelda.update();
-    link.update();
-}, 1000);
 zelda.addUpvieButtonListener();
 zelda.addUppieceButtonListener();
+zelda.addUpétoileButtonListener();
 link.addUppieceButtonListener();
 link.addUpvieButtonListener();
+link.addUppotionButtonListener();
 /* Detecter selection Link ou Zelda*/ const linkButton = document.querySelector(".personnage_selection_link");
 const zeldaButton = document.querySelector(".personnage_selection_zelda");
 linkButton?.addEventListener("click", ()=>{
@@ -581,6 +579,7 @@ zeldaButton?.addEventListener("click", ()=>{
 });
 const buttonStart = document.getElementById("lancer");
 const jeuxStart = document.getElementById("jeux_start");
+const divlose = document.getElementById("divlose");
 buttonStart.addEventListener("click", ()=>{
     if (linkButton?.classList.contains("selected")) {
         const jeuxLink = document.getElementById("jeux_link");
@@ -591,6 +590,11 @@ buttonStart.addEventListener("click", ()=>{
     }
     jeuxStart?.classList.add("display_none");
     jeuxStart?.classList.remove("display");
+    setInterval(()=>{
+        zelda.update();
+        link.update();
+    }, 1000);
+    divlose.textContent = "Oh non ! " + inputPseudo.value + " est mort";
 });
 /* Obligation de rentrer pseudo + récup pseudo*/ const form = document.getElementById("recup_pseudo");
 const inputPseudo = form.elements.namedItem("pseudo");
@@ -604,6 +608,16 @@ buttonValider.addEventListener("click", (event)=>{
         button.style.display = "none";
     }
 });
+setInterval(function() {
+    if (zelda.vie < 0 && zelda.piece < 0 && zelda.étoile < 0 && link.vie < 0 && link.piece < 0 && link.potion < 0) {
+        const jeuxZelda = document.getElementById("jeux_zelda");
+        const jeuxLink = document.getElementById("jeux_link");
+        const jeux_fin = document.getElementById("jeux_fin");
+        jeuxZelda?.classList.remove("display");
+        jeuxLink?.classList.remove("display");
+        jeux_fin?.classList.add("display");
+    }
+}, 1000);
 /* Reload quand cliquer sur button recommencer */ const retour_accueil = document.getElementById("recommencer");
 retour_accueil?.addEventListener("click", ()=>{
     location.reload();
@@ -621,6 +635,38 @@ class zelda_class extends (0, _jeuxClass.jeux_class) {
     up_vie = "upvie_zelda";
     up_piece = "uppiece_zelda";
     barre_piece = "barre_piece_zelda";
+    étoile = 100;
+    barre_étoile = "barre_\xe9toile_zelda";
+    up_étoile = "up\xe9toile_zelda";
+    barre_diminue_étoile() {
+        if (this.étoile > 50) this.étoile -= 10;
+        else if (this.étoile > 15) this.étoile -= 6;
+        else this.étoile -= 2;
+        const étoileBarre = document.getElementById(this.barre_étoile);
+        if (étoileBarre) étoileBarre.style.width = `${this.étoile}%`;
+    }
+    // Méthode pour alimenter les jauges
+    upétoile() {
+        console.log(this.étoile);
+        if (this.étoile < 100) {
+            this.étoile += 10;
+            if (this.étoile > 100) this.étoile = 100;
+            // Mettre à jour la propriété "width" de l'élément "barre_vie_zelda" en fonction de la vie restante
+            const barreétoile = document.getElementById(this.barre_étoile);
+            if (barreétoile) barreétoile.style.width = `${this.étoile}%`;
+        }
+    }
+    addUpétoileButtonListener() {
+        const upétoileBtn = document.getElementById(this.up_étoile);
+        if (upétoileBtn) upétoileBtn.addEventListener("click", ()=>{
+            this.upétoile();
+        });
+    }
+    update() {
+        this.barre_diminue_vie();
+        this.barre_diminue_piece();
+        this.barre_diminue_étoile();
+    }
 }
 
 },{"./jeux_class":"hadZg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hadZg":[function(require,module,exports) {
@@ -726,6 +772,38 @@ class link_class extends (0, _jeuxClass.jeux_class) {
     up_vie = "upvie_link";
     up_piece = "uppiece_link";
     barre_piece = "barre_piece_link";
+    potion = 100;
+    barre_potion = "barre_potion_link";
+    up_potion = "uppotion_link";
+    barre_diminue_potion() {
+        if (this.potion > 50) this.potion -= 10;
+        else if (this.potion > 15) this.potion -= 6;
+        else this.potion -= 2;
+        const potionBarre = document.getElementById(this.barre_potion);
+        if (potionBarre) potionBarre.style.width = `${this.potion}%`;
+    }
+    // Méthode pour alimenter les jauges
+    uppotion() {
+        console.log(this.potion);
+        if (this.potion < 100) {
+            this.potion += 10;
+            if (this.potion > 100) this.potion = 100;
+            // Mettre à jour la propriété "width" de l'élément "barre_vie_zelda" en fonction de la vie restante
+            const barrepotion = document.getElementById(this.barre_potion);
+            if (barrepotion) barrepotion.style.width = `${this.potion}%`;
+        }
+    }
+    addUppotionButtonListener() {
+        const uppotionBtn = document.getElementById(this.up_potion);
+        if (uppotionBtn) uppotionBtn.addEventListener("click", ()=>{
+            this.uppotion();
+        });
+    }
+    update() {
+        this.barre_diminue_vie();
+        this.barre_diminue_piece();
+        this.barre_diminue_potion();
+    }
 }
 
 },{"./jeux_class":"hadZg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["aT2g9","bmWZz"], "bmWZz", "parcelRequirebea9")

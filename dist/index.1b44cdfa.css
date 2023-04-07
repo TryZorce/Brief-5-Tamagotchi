@@ -26,7 +26,7 @@
 
 .progress {
   height: 100%;
-  width: 60%;
+  width: 100%;
   background-color: #007bff;
   position: absolute;
 }
@@ -38,24 +38,24 @@
 }
 
 .skull {
-  width: 80%;
+  width: 60%;
 }
 
 @media screen and (min-width: 380px) {
   .skull {
-    width: 60%;
+    width: 50%;
   }
 }
 
 @media screen and (min-width: 570px) {
   .skull {
-    width: 40%;
+    width: 30%;
   }
 }
 
 @media screen and (min-width: 850px) {
   .skull {
-    width: 30%;
+    width: 20%;
   }
 }
 
@@ -140,10 +140,12 @@ form {
 
 .row {
   flex-direction: row;
+  display: flex;
 }
 
 .column {
   flex-direction: column;
+  display: flex;
 }
 
 .zelda_taille {
@@ -174,8 +176,28 @@ form {
   font-family: inherit;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
+.personnage_selection_link {
+  background: #c5c5c5;
+  border: 1px solid #000;
+  margin-right: 20px;
+}
+
+.personnage_selection_zelda {
+  background: #c5c5c5;
+  border: 1px solid #000;
+}
+
 .selected {
   background-color: #9d9da0;
+}
+
+.fond_button_none {
+  background: none;
+  border: none;
 }
 
 /*# sourceMappingURL=index.1b44cdfa.css.map */
